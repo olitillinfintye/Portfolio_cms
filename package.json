@@ -1,0 +1,27 @@
+{
+  "name": "monorepo",
+  "private": true,
+  "workspaces": [
+    "./apps/*"
+  ],
+  "scripts": {
+    "dev": "turbo dev",
+    "start:dev": "turbo start:dev",
+    "build": "turbo build",
+    "build:server": "npm -w server run build",
+    "build:client": "npm -w client run build",
+    "start:server": "npm -w server run start",
+    "start:client": "npm -w client run start",
+    "build:client:digitalocean": "npm install --production=false && npm run build:client",
+    "build:server:digitalocean": "npm install --production=false && npm run build:server",
+    "prisma:generate": "prisma generate",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "turbo": "^1.11.3"
+  }
+}
